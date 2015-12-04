@@ -1,0 +1,1299 @@
+{% extends 'base.html' %}
+
+{% block title %}
+PokeQuest
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+<div class="col-md-2">
+	<h3>Hello Team <strong>{{ player.name }}</strong>!<br><br>Your CPI is {{ player.points }}<br><br><br></h3>
+	<!-- <h5><a href="/pokequest/profile" target="_blank">Click here</a> for your <u>Profile and Leaderboard</u></h5> -->
+	<!-- <h4>Counter = {{ player.counter }}</h4> -->
+	<!-- <h4>Session counter = {{ count }}</h4> -->
+</div>
+<div class="col-md-8">
+
+	<script type="text/javascript">
+		function changeDiv()
+    	{
+	        var counter = {{ player.counter }};
+	        var i;
+            for(i=1;i<counter;i++)
+            {
+                document.getElementById(i).style.display = "none";
+            }
+            document.getElementById(counter).style.display = "block";
+            if({{ invalidity }} == 1)
+	        {
+	        	alert("Invalid Input! Try something else.");
+	        }
+	        if({{ invalidity_answer }})
+	        {
+	        	alert("Sorry, you answer was incorrect. But don't you worry, don't you worry, child! See what the game has still got for you.");
+	        }
+    	}
+    	window.onload = changeDiv;
+	</script>
+
+	<div id="1" style="display:none">
+	<p>
+	The following game is the quest to become a pokemon master. The game will be in the form of a story which will keep on scrolling down as you type NEXT or type answer in the textbox given (whenever required) and click SUBMIT. Once you reach next page you are not allowed to go back. So make sure you are making notes of whatever is coming. Because the previous page might contain hints to solve the puzzle on the present page.<br><br>
+	</p>
+	</div>
+
+	<div id="2" style="display:none">
+	<p>
+	Coming to the game.<br>
+	The game focuses on the creatures known as Pokémon, as well as their inhabited world, full of legends, tales, and adventures. Several interpretations of the world explore different themes and elements. Most commonly, Pokémon coexist with humans and can be caught, trained, and used in battles and other activities. Trainers, along with their Pokémon, travel across diverse lands aiming to make their dreams become reality.<br><br>
+	</p>
+	</div>
+
+	<div id="3" style="display:none">
+	<p>
+	You are a 16 year old kid from Pallet town and your name is Ash Ketchum. You are going to start your journey to be a pokemon master. Professor Samuel Oak is a Pokémon Professor who lives and works at his research lab in Pallet Town and he gives you valuable advice and help you achieve your goal of becoming a Pokémon master. You have to catch new Pokémons, unlock their attacks, fight gym leaders. Once you defeat a gym leader, you are given a badge by gym leader as a proof of your victory.
+	</p>
+	</div>
+
+	<div id="4" style="display:none">
+	<p>
+	<br>
+	During your journey, you'll face some hurdles. You need to cross these hurdles and earn points. If you get stuck somewhere, you can skip but surely points would be deducted. The puzzles are deisgned in a way that they are time-consuming, so spend decent amount of time with each puzzle before skipping.<br>
+	For every puzzle you solve correctly, there will be an increase in your Cumulative Points Index (CPI).<br>
+But if you fail to answer correctly or give some invalid input, your CPI will surely be deducted.<br>
+	</p>
+	</div>
+
+	<div id="5" style="display:none">
+	<p>
+	The Elite Four are four Pokémon Trainers (Sagar, Vaibhav, Sarthak, Sambit) who are regarded as the toughest in their regional Pokémon League. Those who challenge the Elite Four must have won all eight Badges from that region. To become the champion of the region you must defeat all four trainers without losing to any of them.<br>
+
+	But wait, any game without a villain is sooo boring. So you have to stop Team Rocket from creating nuisance. It is known that Team Rocket have developed a genetically modified Pokémon named “SEW TWO” which is very powerful. Your aim is to defeat SEW TWO and stop team rocket from creating such genetically modified Pokémons by destroying their laboratories.
+	</p>
+	</div>
+
+	<div id="6" style="display:none">
+	<p>
+	<br>
+	But wait, there is a twist to the story. During your journey, you are also accompanied by a Bad Luck soul named “HAUNTER”, which keeps on creating problems for you by either entering your Pokémon or your Pokéballs or anything else. Oh wait, did I mention what Pokéballs are ?<br>
+	A Poké Ball is a type of item that is critical to a Trainer's quest, used for catching and storing Pokémon. Up to six Pokémons can be carried with a Trainer in Poké Balls, while any number of other Poké Balls can be stored in the Bag for later use. These six Pokémons in the Poké Balls can be attached to the user's belt for carrying them around. Some Pokémons do not like to be carried around in Poké Balls.<br>
+	</p>
+	</div>
+
+	<div id="7" style="display:none">
+	<p>
+	You also have a Pokédex with you. The Pokédex is a digital encyclopedia created by Professor Oak as an invaluable tool to Trainers in the Pokémon world. It gives information about all the Pokémons in the world that are contained in its database.
+	</p>
+	</div>
+
+	<div id="8" style="display:none">
+	<p>
+	And also to take care of “HAUNTER” from creating much hindrance, you have a Tech-Freak Pokemon named “Togepi”. He used to live with your family in Pallet Town and would accompany you in your journey. It is able to siphon the positive energy of others, and then release it to those in need of it. It has a very joyful nature. As a result, it is said that it shares its joy with those who take care of it.<br>
+	Because of its disposition, Togepi are seen as signs of good luck, especially if a Trainer is capable of getting a sleeping Togepi to stand. Because, it was with your family your mom had developed unconditional love for Togepi. So, he will accompany you in the journey but you are not allowed to use him in any battles, as you have promised the same to your mom.<br> 
+	Being a Tech-Freak Pokémon, it has some crazy gadgets which can be of great help to you. But, Togepi loves to ask puzzles and bothers you with it every now and then. It gets irritating sometimes, but you cannot avoid it.
+	</p>
+	</div>
+
+	<div id="9" style="display:none">
+	<p>
+	So let the quest begin ...<br>
+	The story starts from your 16th birthday ...<br>
+	This never ends….. No, don’t be a loser. You gotta do it. Well, it’s simple, you got all the 8 badges and you can beat the Elite Four, then nothing can stop you to become Pokémon master. Here, the battle begins…..<br><br>
+	Sagar: <i>Do you wish to challenge the Elite Four? It won't be easy to defeat us! Let the match begin!</i><br>
+	You: <i>Got it. It’s time. Go Pokemon, Attack</i>!
+	</p>
+	</div>
+
+	<div id="10" style="display:none">
+	<p>
+	Sagar: <i>That’s it! I hate to admit it, but you are a Pokémon master! I’m just kidding. You’re still a kid.</i><br>
+	You: <i>I have become stronger! There's no way I'll lose now! Pokemon, Attack!</i><br>
+	Sagar: <i>Don't think losing will change my ways. To reach the top, you must continue on to face the true might of the Elite Four!</i><br>
+	You: <i>Nothing can stop me to win!</i><br>
+	Sagar: <i>Ah! I heard about you, Ash! I lead the Elite Four! You can call me Sagar the dragon trainer! You know that dragons are mythical Pokémon! They’re hard to catch and raise, but their powers are superior! They’re virtually indestructible. Well, are you ready to lose? Your League challenge ends with me, Ash!</i>
+	</p>
+	</div>
+
+	<div id="11" style="display:none">
+	<p>
+	Ash……Ash…..Ash……Ash…..Wake Up! Wake up Ash….Are you dreaming or something? (Prof Oak’s Voice)<br><br>
+
+	You (Opening your eyes): <i>WAHHHH! It was a dream! I was about to defeat Sagar.</i><br>
+	Oak: <i>You’re a kid, Ash. You need to learn many things. It isn’t easy to defeat them. Maybe this isn’t your dream, it’s your aim.</i><br>
+	You (Inspired by the dream): <i>Although it was a dream but I want to become a master!</i><br>
+	Oak: <i>Alright, Pokémon around the world are waiting for you, Ash! Go, get ém all. Now it’s time to face challenges in real world. Make your dream an aim to live up to. Get ready and meet me in the Lab, a surprise for you there!</i><br><br>
+	(Ash got motivated by Oak’s words! Then he decided to be a master by winning all the 8 badges and then defeat Elite Four by proper training.)
+	</p>
+	</div>
+
+	<div id="12" style="display:none">
+	<p>
+	In the Prof. Oak’s Lab..<br><br>
+
+	You: <i>Hello, Professor Oak.</i><br>
+	Oak: <i>Hello Ash! Sorry to keep you waiting! Welcome to the world of Pokémon! People call me Pokémon Prof. As you know, this world is inhabited by creatures that we call Pokémon. People and Pokémon live together by supporting each other. Some people play with Pokémon, some battle with them. But we don't know everything about Pokémon yet. There are still many mysteries to solve. That's why I study Pokémon every day.</i>
+	<p>
+	</div>
+
+	<div id="13" style="display:none">
+	<p>
+	You: <i>What about my surprise gift!!!</i><br>
+	Oak: <i>Ahhh! See, you need a Pokémon to battle against others. Here we go, Pikachu... Ash, go ahead, it's yours!</i><br>
+	Then suddenly Pikachu makes a Thunder Bolt attack as you tried to keep him in Poké Ball. You gotta dodge it.<br>
+
+
+	You: <i>This Pokémon is really energetic!</i><br>
+	Oak: <i>Your Pikachu dislikes Poké Balls. You should just keep it with you. That should make it happy! You can talk to it and see how it feels about you.</i><br>
+	You: <i>It's quite amazing. Thank you Prof.</i><br>
+	</p>
+	</div>
+
+	<div id="14" style="display:none">
+	<p>
+	Are you ready for the journey?<br><br>
+	Oak : <i>Before you go, listen to my words carefully. Raise your young Pokémon by making it fight! You can get detailed data on Pokémon by using Pokédex. You must catch them! Use these to capture wild Pokémon. When a wild Pokémon appears, it’s a fair game. Just like I showed you, throw a Poké Ball at it and try to catch it!<br> 
+	This won't always work, though. A healthy Pokémon could escape. You have to be lucky! There's no running away from a Trainer Pokémon battle! If you win, you earn points, and your Pokémon will grow! Battle other Trainers and make your Pokémon strong!<br>
+	Take this Pokédex and have a wonderful journey.Don't forget to take Togepi along with you. And never use Togepi for battle, otherwise your mom would be really angry.</i>
+	</p>
+	</div>
+
+	<div id="15" style="display:none">
+	<p>
+	Your journey starts from Ash’s hometown, Pallet Town to Pewter City, through Viridian Forest.<br><br>
+	You: <i>Let’s go Pikachu. We are a team now.</i><br>
+	Pikachu: <i>Pika Pika (reluctantly)</i><br>
+
+	You: <i>Aren't you excited buddy? Together we will win all the battles.</i><br>
+	Pikachu: <i>Pika pika...</i><br>
+	Togepi: <i>He's saying “Whatever...”.</i><br><br>
+
+	Togepi being a Tech-freak has a translator attached, so he can actually communicate with humans. Looks like your Pikachu is least interested in what you think. But why is this happening? Oh wait, you almost forgot about Haunter. It seems Haunter has entered Pikachu, as reflected from Pikachu's behaviour.
+	</p>
+	</div>
+
+	<div id="16" style="display:none">
+	<p>
+	You: <i>Hey bud, cheer up. Lets start our training.</i><br><br>
+	Pikachu is not interested and starts running away from you. You and Togepi rush behind him.<br><br>
+
+	You: <i>What's wrong with him?</i><br>
+	Togepi: <i>Its Haunter, I suppose.</i><br>
+	You: <i>How can I get Haunter out of my Pokémon?</i><br>
+	Togepi: <i>I know a solution to this problem, but you have to solve this riddle to get the answer.</i>
+	</p>
+	</div>
+
+	<div id="17" style="display:none">
+	<p>
+	You: <i>Oh please Togepi! Y u do this to me?</i><br>
+	Togepi: <i>Deal with it :P</i><br>
+
+	Togepi: <i>The answer to it has three words.</i><br><br>
+
+	Three Words: 16 iii 2 8 9 ii &nbsp;&nbsp;&nbsp; 6 iii 15 &nbsp;&nbsp;&nbsp; 16 i iii 9<br><br>
+
+	Just think about the different types of English alphabets.<br><br>
+
+	Type your answer in the textbox!
+	</p>
+	</div>
+
+	<div id="18" style="display:none">
+	<p>
+	    Togepi: <i>"Tickle His Tail" and Haunter's soul would automatically leave Pikachu's body.</i><br>
+	    You: <i>Wait let me try this ...Come here Pikachu.</i><br><br>
+
+	    You tickle Pikachu's tail and Haunter's soul exit Pikachu's body. You curse Haunter as he vanishes away, Haunter vanishes in the dark murmuring “I'll surely return”.
+	</p>
+	</div>
+	<div id="19" style="display:none">
+	<p>
+	    Pikachu: <i>Pika pika .. pikachu pika pika...</i><br>
+	    You: <i>Great pikachu. Now nobody can stop me from being a Pokémon master. Let us continue our journey.</i><br>
+	    Togepi: <i>Yes, we should and now its time Ash that you should train your Pikachu so that he learns some attacks and that in turn would help you catch more Pokémons.</i><br>
+	    You: <i>Let’s go Pikachu….we are a team now.</i><br>
+	    Pikachu: <i>Pika Pika</i>
+	</p>
+	</div>
+	<div id="20" style="display:none">
+	<p>
+	    You: <i>The forest is so dense and scary. Look what’s that up in the sky?</i><br><br>
+
+	    A bunch of tiny birds are heading towards you.<br>
+	    Those tiny birds are looking to hurt Pikachu.<br>
+	    Opens up Pokédex to get information<br><br>
+	    <strong>Pokédex: A flying type Pokémon - Spearow.</strong>
+	</p>
+	</div>
+	<div id="21" style="display:none">
+	<p>
+	    You: <i>Run Pikachu! Save yourself.</i><br>
+	    You have to get rid of those Spearows from Pikachu<br>
+	    Togepi: <i>Ask Pikachu to attack the spearows.</i><br>
+	    You: <i>But I have not trained him yet.</i><br>
+	    Togepi: <i>No problem, just ask him to do his basic attack which does not require training.</i>
+	</p>
+	</div>
+	<div id="22" style="display:none">
+	<p>
+	    You: <i>Sorry, but I don't know any such attack.</i><br>
+	    Togepi: <i>Oh God ! You're so dumb. I am not gonna tell you the attack directly. Solve this puzzle to get the attack.</i><br>
+	    <strong>\| |/ ||_| ) (/- | |-\ |)\ ^^</strong><br><br>
+	     <!-- <strong>\|/||_|) (|-|/-\|)\^^</strong><br><br> -->
+	    Just compress a bit and you'll get what you are looking for. It's just two words.
+	</p>
+	</div>
+	<div id="23" style="display:none">
+	<p>
+	    Togepi: <i>”Wild Charm” it is ....</i><br>
+	    Ash: <i>Spearows! Do you know who I am? I'm Ash, from the town of Pallet. I'm destined to be the world's number one Pokémon master! I can't be defeated by the likes of you. I'm going to defeat and capture you ! ...Go Pikachu ..... Use wild charm on those spearows.</i><br><br>
+
+	    Type the attack in the input box below!
+	</p>
+	</div>
+	<div id="24" style="display:none">
+	<p>
+	    Well done ! You have unlocked an offensive attack of your Pokémon.
+	</p>
+	</div>
+
+	<div id="25" style="display:none">
+	<p>
+	    You: <i>I’m hungry Pikachu. See? These are those berries we found in the forest. Here we go.</i><br>
+	    Opens up Pokédex<br>
+	    You: <i>What were those Spearows looking for?</i><br>
+	    Pokédex: <i>It steals food from stupid travellers and annoy them too.</i><br>
+	    You: <i>So that means I'm stupid?</i><br>
+	    Pokédex: <i>Well, I’m only designed to give information about all Pokémon in the world that are contained in my database.</i>
+	</p>
+	</div>
+
+
+	<div id="26" style="display:none">
+	<p>
+	Togepi: <i>There is another Pikachu's attack that I want you to know.</i><br>
+	You: <i>I am in no mood for puzzles right now.</i><br>
+	Togepi: <i>Ok fine. No puzzle, no attack.</i><br>
+	You: <i>Togepi! I hate you… Ok ask what you want to.</i><br>
+	Togepi: <i>Decipher the following code...</i><br><br>
+		
+	ABCDEFGHIJKLMNOPQRSTUVWYZ<br>
+	QQQQQQQQQQQQQQQQQQQQQ<br><br>
+
+	The above code represents two words. The first of them is a kind of negation containing two letters and the second word has six letters.<br><br>
+
+	Type your answer!
+	</p>
+	</div>
+
+	<div id="27" style="display:none">
+	<p>
+	Togepi: <i>“Defense Curl” is a defensive attack of your Pokémon. It helps your Pokémon defend the offensive attacks by other Pokémon.</i><br>
+	You:<i>Thank you, Togepi.</i><br><br>
+ 
+	You: <i>Alright Pikachu, let’s head to Pewter City! Who’s the Gym trainer of Pewter City?</i><br>
+	Pokédex: <i>Brock is the Pewter City’s Gym Leader! He has Rock type Pokémon.</i>
+	</p>
+	</div>
+
+	<div id="28" style="display:none;">
+	<p>
+	    You (To a stranger): <i>Where can I find Brock?</i><br>
+	    Stranger: <i>I'll tell you but you have to fight against me then?</i><br>
+	    You: <i>Yes, get ready to lose!</i><br>
+	    Stranger: <i>Caterpie, throw Electorweb!!</i><br>
+	    You: <i>Go Pikachu, turn him down!!</i>
+	</p>
+	</div>
+	<div id="29" style="display:none;">
+	<p>
+	    Pikachu: <i>Pi-Pika-Chu ..</i><br><br>
+	    <strong>Awesome! You did it again.</strong>
+	</p>
+	</div>
+	<div id="30" style="display:none;">
+	<p>
+	    You: <i>I love you, Pikachu. Now that I have won the match, you have to tell me where can I find Brock.</i><br>
+	    Stranger: <i>He is out the city for some days.</i><br>
+	    You: <i>Damn! I feel like a stupid now.</i><br>
+	    Pokédex: <i>I told you before!</i><br>
+	    You: <i>Shut up! Now, let’s head to Cerulean City.</i><br>
+	    Pikachu: <i>Pikaaaa Pikaa..</i> 
+	</p>
+	</div>
+
+	<div id="31" style="display:none">
+	<p>
+		Here your journey begins to Cerulean. Hope you’re enjoying the trip. Here you go...
+	</p>
+	</div>
+	<div id="32" style="display:none">
+	<p>
+		You: <i>I’m so hungry, Pikachu. See, there is a pond. Let’s go fishing.</i><br>
+		Pikachu: <i>Pikaaaa</i><br>
+		You: <i>Look, that creature looks like a turtle is floating on water. What’s that, Pokédex?</i><br>
+		Pokédex: <i>This is a water type Pokémon- Squirtle.</i><br>
+		You: <i>I need this one. Go Pokéball!</i>
+	</p>
+	</div>
+	<div id="33" style="display:none">
+	<p>
+		You threw the Poké Ball, but unfortunately it didn’t catch Squirtle.<br><br>
+		 
+		Togepi: <i>You’re so dumb. You’ll have to first knock him down in order to catch him. Every Pokémon trainer knows this.</i><br><br>
+		 
+		Squirtle attacks you now with some offensive attack!<br><br>
+		You: Go Pikachu!
+
+		(Type the attack you want Pikachu to do, from the ones you have unlocked!)
+	</p>
+	</div>
+	<div id="34" style="display:none">
+	<p>
+		Squirtle uses “SKULL BASH” attack.<br><br>
+		You: Go PI-KA-CH-U !<br><br>
+
+		Type the attack you want Pikachu to do!
+	</p>
+	</div>
+	<div id="35" style="display:none">
+	<p>
+		Togepi: <i>Squirtle is hurt now. Now try catching him using Pokéball.</i><br>
+		You: <i>Pokéball Go!!</i><br><br>
+		 
+		Nothing changes, still your Pokéball is not able to catch Squirtle.<br><br>
+		You: <i>What’s wrong with Pokéball?<br>
+		Togepi: <i>I don’t know. It should have caught Squirtle.</i>
+	</p>
+	</div>
+	<div id="36" style="display:none">
+	<p>
+		Squirtle: <i>Nothing is wrong with your Pokéball. You see this vast lake, I am the KING of this lake and I cannot be caught using a normal Pokéball. But because you knocked me down, I can ask my “Chief Minister” Squirtle to go along with you as your Pokémon. But before that you’ll have to prove your worth.</i>
+
+	</p>
+	</div>
+	<div id="37" style="display:none"> <!-- answer -->
+	<p>
+		I’ll ask you a riddle and if you answer it correctly,  “Chief Minister” Squirtle is yours. This riddle would also help you unlock Squirtle’s attack.<br><br>
+		 
+		OTPM  FRGRMDR<br><br>
+		While reading the code, do not forget to notice its left. Because the answer is kept in front of you.
+	<p>
+	</div>
+	<div id="38" style="display:none"><!-- answer -->
+	<p>
+		Togepi: <i>This puzzle was soo good. Hey Ash, solve a similar type of riddle to unlock another attack of Squirtle.</i><br><br>
+		 
+		OIQWE YO OYBXG<br><br>
+		While reading the code, do not forget to notice its right if you want the right answer.<br><br>
+		 
+		Ash: <i>Oh Togepi ! When will you stop irritating me.</i><br>
+		Togepi: <i>Ummmm.. Never!</i>
+	</p>
+	</div>
+	<div id="39" style="display:none">
+	<p>
+		If you were able to answer correctly, Good Job. Otherwise Togepi helps you in solving the puzzles and get you your new Pokémon and his attacks, but in turn takes away some points.<br><br>
+		 
+		Awesome... Now you also have Squirtle in your team and you have unlocked two of his attacks “IRON DEFENSE”(As told by King Squirtle) and “POWER UP PUNCH” (As told by Togepi).
+	</p>
+	</div>
+	<div id="40" style="display:none">
+	<p>
+		King Squirtle: <i>Good job Ash. You deserve this.</i><br>
+		Minister Squirtle: <i>Sqq-iirr-ttleee...</i><br>
+		You: <i>It's great to have you. Welcome to the team.</i><br>
+		Togepi: <i>Lets go... Cerulean gym is waiting for us.</i>
+	</p>
+	</div>
+	<div id="41" style="display:none">
+	<p>
+	At Cerulean City gym...<br>
+	Togepi: <i>Hey! Look over the bridge, let’s meet her.</i><br>
+	You: <i>Yeah! Let's go. She might help us find the gym leader.</i><br><br>
+	 
+	You: <i>Hi! I’m Ash, the future Pokémon master.</i><br>
+	She: <i>Hmmm! I appreciate your confidence. By the way I’m Misty, the Gym Leader of Cerulean City's Gym.</i><br>
+	You: <i>OMG! So which Pokémon do you like?</i><br>
+	Misty:  <i>My policy is an all-out offensive battle with Water-type Pokémon!</i><br>
+	You: <i>I’m here to challenge you for a gym battle.</i><br>
+	Misty: <i>You’re welcome. Let’s have a fight then!</i><br>
+	You: <i>Let’s begin!</i><br>
+	</p>
+	</div>
+
+	<div id="42" style="display:none"><!-- gym battle -->
+	<p>
+    Inside the gym...<br><br>
+    
+    Battle Judge: Each trainer is allowed to use only one Pokémon for the battle. The trainer whose Pokémon’s health drop to extremely low level loses the battle. Let the battle begin...<br><br>
+    
+    Misty: <i>I choose you, Starmie(Star-fish Pokémon)!<br>
+    See! This is the Water-type toughness I was talking about!</i><br>
+    Misty: <i>Hyper Beam attack!</i><br>
+    You: <i>Go Squirtle!<i/><br><br>
+
+	Type some attack!
+	</p>
+	</div>
+
+	<div id="43" style="display:none"><!-- gym battle -->
+	<p>
+	Misty: <i>Go Starmie! WATER PULSE attack...</i><br><br>
+	Your turn now.<br>
+	Type some attack!
+	</p>
+	</div>
+
+	<div id="44" style="display:none"><!-- gym battle -->
+	<p>
+	Misty: <i>Use TAKE-DOWN Starmie!</i><br>
+	You: <i>But I am not left with any attack. What should I do? Help me out, Togepi.</i><br>
+	Togepi: <i>Wait I know, try the attack that Squirtle used on you for the first time. Maybe Squirtle could perform that attack.</i><br>
+	You: <i>But I don’t remember the attack...</i><br>
+	Togepi: <i>I am not going to tell you...</i><br><br>
+	Type the attack!
+	</p>
+	</div>
+
+	<div id="45" style="display:none">
+	<p>
+	Togepi: <i>”SKULL BASH” it is !</i><br><br>
+	If you were able to answer, good enough otherwise some points would have been deducted.<br><br>
+	You: <i>Go squirtle. Use SKULL BASH….</i><br>
+	Misty: <i>Oh my God! Try to dodge that Starmie …. Oh no …</i><br><br>
+	That attack hits Starmie badly and drops her health to zero.<br>
+	Great job! You have won the battle.
+	</p>
+	</div>
+
+	<div id="46" style="display:none">
+	<p>
+	Battle Judge: <i>Misty’s Pokémon Starmie won’t be able to fight anymore.</i><br>
+	Ash Ketchum wins the battle<br>
+	Misty: <i>Great job Ash!</i><br>
+	You: <i>We’ve done it Squirtle. Thank you Togepi! I love you.</i><br>
+	Misty: <i>Come here Ash, Take this “CASCADE BADGE”, You truly deserve this.</i><br>
+	You: <i>So finally, Cascade Badge is mine!!</i>
+	</p>
+	</div>
+
+	<div id="47" style="display:none">
+	<p>
+	Suddenly Team Rocket interferes. Jessie and James are members of Team Rocket and Meowth is their Cat-Pokémon.<br><br>
+
+	Team Rocket- JESSIE: Prepare for trouble!<br>
+	JAMES: Make it double!<br>
+	JESSIE: To protect the world from devastation!<br>
+	JAMES: To unite all peoples within our nation!<br>
+	JESSIE: To denounce the evils of truth and love!<br>
+	JAMES: To extend our reach to the stars above!<br>
+	JESSIE: Jessie!<br>
+	JAMES: James!<br>
+	JESSIE: Team Rocket, blast off at the speed of light!<br>
+	JAMES: Surrender now, or prepare to fight!<br>
+	MEOWTH: Meowth! That's right!
+	</p>
+	</div>
+
+	<div id="48" style="display:none">
+	<p>
+	They capture your Squirtle and Misty’s Starmie using a robotic arm.<br>
+	Misty: <i>You grab Pikachu and get out of here! I'll take care of these three clowns.</i><br>
+	Jessie: <i>That's pretty big talk coming from such a little lady.</i><br>
+	Misty: <i>At least you're right about the pretty part, thanks for the compliment.</i><br>
+	James: <i>The girl thinks she's pretty.</i><br>
+	Jessie: <i>I agree with her, I think she's pretty, too. Pretty pathetic!</i><br>
+	Misty: <i>Hmmmm, I'll show you! Poké Ball, go!</i><br>
+	</p>
+	</div>
+
+	<div id="49" style="display:none"><!-- attack, just foreplay -->
+	<p>
+	Goldeen(Gold-Fish Pokémon) comes out rolling and jumping on the floor, to Jessie's and James' shock.<br>
+	Misty: <i>Goldeen, return.</i><br>
+	Jessie: <i>That's her best shot?</i><br>
+	James: <i>She's all washed up.</i><br>
+	You: <i>Go Pikachu, defeat them!</i><br><br>
+
+	Type some attack!
+	</p>
+	</div>
+
+	<div id="50" style="display:none">
+	<p>
+	You made it. Team Rocket is blasting off. You’ve got your Squirtle back!<br><br>
+	Misty: <i>Oh no! Starmie looks like it's in real pain!</i><br>
+	Ash: <i>It doesn't even have a face, how can you tell?</i><br>
+	Misty: <i>Because I'm sensitive to other's feelings! That's how!</i><br>
+	You: <i>Oh, yeah? Like I'm not? Anyways, it’s time for another city. Will catch you later!</i><br>
+	Misty: <i>Wait! I’ll better come with you and help you to train your Squirtle. Let’s go to Saffron City together!</i><br> 
+	You: <i>Great!! Lets go!</i>
+	</p>
+	</div>
+
+	<div id="51" style="display:none">
+	<p>
+	Saffron city is a sprawling metropolis in the Kanto region. It is the tenth most populous city in the Pokémon world and one of the only cities in Kanto that has enough visible houses to accommodate its population in the games. The town is known for its haunting legend and its festival which is held at the end of every summer.<br><br>
+	You: <i>Let’s hop into the city, Misty.</i><br>
+	Misty: <i>Hey Ash! Why don’t you battle against Saffron City’s Gym trainer? I think you should get your second badge from Saffron Gym, the Marsh Badge.</i><br>
+	You: <i>Yeah! Let’s do it. Who’s the gym trainer here?</i><br>
+	Misty: <i>Saffron City Pokémon Gym Leader is Sabrina. She is the Master of Psychic Pokémon.</i><br>
+	</p>
+	</div>
+
+	<div id="52" style="display:none">
+	<p>
+	In forest, on their way to Saffron City...<br>
+	You: Let’s meet her. Wait, see there?<br>
+	You spot a Pokémon<br>
+	Misty: <i>What’s that?</i><br>
+	Open your Pokédex<br>
+	Pokédex: <i>It’s Weedle, a dual-type Bug/Poison Pokémon.</i><br>
+	Misty: <i>Ewwwww!</i><br>
+	You: <i>I like this little Pokémon!</i><br>
+	Misty: <i>I guess it takes a worm to love a worm.</i><br>
+	You (Sarcastically): <i>Very funny..</i><br>
+	Misty: <i>It's so gross. Bugs are one of the three most disgusting things in the world!</i><br>
+	</p>
+	</div>
+
+	<div id="53" style="display:none">
+	<p>
+	You: <i>Aside from you, what are the other things you think are disgusting?</i><br>
+    Misty: <i>Very funny. Carrots, pepper, and bugs. Everybody has something they don't like and I don't like bugs!</i><br>
+    You: <i>Well, yeah, I like carrots, and pepper, and bugs. What I don't like is the way you're hurting Weedle's feelings with your silly fear of bugs.</i><br>
+    Misty (dismissively): <i>Hmph!</i><br>
+	</p>
+	</div>
+
+	<div id="54" style="display:none"><!-- attack, just foreplay -->
+	<p>
+	You: <i>Hey look over there, it looks like a lizard!</i><br>
+    Open Pokédex<br>
+    Pokédex: <i>It’s Charmander a Fire-type Pokémon.</i><br>
+    Misty: <i>You gotta take him, Ash.</i><br>
+    You: <i>Alright! Let’s get him in our team.</i><br>
+    You: <i>Go Pikachu, PI-KA-CH-U !</i><br><br>
+
+    Type some attack!
+	</p>
+	</div>
+
+	<div id="55" style="display:none">
+	<p>
+	Pikachu: <i>Pi-Pika-Chu!</i><br>
+    You: <i>Pokéball Go, take him!</i><br><br>
+ 
+    Pokéball hits Charmander but is not able to capture him.<br>
+    You: <i>No, not again...</i><br>
+    And suddenly you hear Haunter laughing...<br>
+    Togepi: <i>Its him, Haunter. He has entered your Pokéball and is hindering its function. You’ll have to get rid of him. Ask him what he wants.</i>
+	</p>
+	</div>
+
+	<div id="56" style="display:none">
+	<p>
+	You: <i>Haunter, Please for God’s sake, leave my Pokéball and go somewhere else.</i><br>
+	Haunter: <i>No, I am not going away. Allow me to qoute-”If you are good at something, never do it for free”.</i><br>
+	Togepi: <i>Looks like a Dark-Knight fan to me...</i><br>
+	You: <i>OK, tell me what do you want?</i><br>
+	Haunter: <i>I see Togepi is a big fan of puzzles and that irritates you the most.So solve one for me...</i><br>
+	</p>
+	</div>
+
+	<div id="57" style="display:none"><!-- puzzle -->
+	<p>
+	A cap seller has 50 caps out of which half of them are blue and the other half are red.On each one them is printed the following:<br><br>
+	<strong>“rePOrt King rahEeM about the kingdom, ONe day before Minister leAveS  for exTendEd vacations to Rome.”</strong><br><br>
+	Later, it is found that cap seller is a secret agent of TEAM ROCKET who is here to deliver this message to someone. Police finds out and captures him. He is asked to explain the meaning of this message, which he refuses to but gives away a hint:<br><br>
+	“Get all the Caps and ignore the rest”.<br>
+	Help police decode the message.<br><br>
+
+	Type your answer.
+	</p>
+	</div>
+
+	<div id="58" style="display:none"><!-- puzzle -->
+	<p>
+	Togepi: <i>Oh God! This is so interesting Haunter. You’re good at this.</i><br>
+	You: <i>Come on Togepi! Are you on his side?</i><br><br>
+	If you answered correctly, you are good to go otherwise Togepi will help you out but in turn marks would be deducted.</i><br><br>
+	Togepi: <i>”POKÉMON MASTER” is the secret message enclosed.</i><br>
+	You: <i>”POKÉMON MASTER” it is!</i><br>
+	Haunter: <i>Correct answer.Time to leave now, but I’ll be back.</i>
+	</p>
+	</div>
+
+	<div id="59" style="display:none"><!-- puzzle -->
+	<p>
+	You: <i>Phew! He is gone.</i><br><br>
+	Now you again try and throw the Pokéball at Charmander. The Pokéball captures Charmander inside itself and continues to make a whirring sound until it stops. Congrats! You have added Charmander to your team.<br><br>
+
+	Togepi: Training Charmander won’t be an easy task.
+	</p>
+	</div>
+
+	<div id="60" style="display:none"><!-- puzzle -->
+	<p>
+	You: <i>Hey Togepi, Please help me train Charmander. Our next battle is with Saffron City’s gym trainer Sabrina. I’ve heard she is a very powerful Pokémon trainer. She is the Master of pyschic Pokémons.</i><br><br>
+	Togepi: <i>I have an idea. Before heading to Saffron City, we can go to the place from where Charmanders originated-”THE FIERY LIZARD VALLEY”. It is home to the most powerful Charmanders in the world. Your Pokémon can learn attacks from them.</i><br>
+	</p>
+	</div>
+
+	<div id="61" style="display:none"><!-- puzzle -->
+	<p>
+	Misty: <i>But wait, As far as I know “THE FIERY LIZARD VALLEY” is located near the Sacred mountains of Pewter City. A huge river flows near this region which is believed to be home to the most powerful water Pokémons in the world. I have heard it is pretty difficult to reach that place.</i><br>
+	Togepi: <i>Well I can help...</i><br>
+	You: <i>But how would we reach there?</i><br>
+	Togepi: <i>I have a gadget that can teleport people to any place you want...</i><br>
+	You: <i>Then what are you waiting for. Give me that gadget!</i>
+	</p>
+	</div>
+
+	<div id="62" style="display:none"><!-- puzzle -->
+	<p>
+	Togepi: <i>If you are good at something, Never do it for free.</i><br>
+	You: <i>Oh Togepi! Not again...</i><br>
+	Togepi: <i>Time for a puzzle.If you solve this correctly I’ll let you use the teleportation gadget.</i><br><br>
+	Here it is...<br>
+	My first is in kendo but not in Olympics.<br>
+	My second is in hurdles and in hunting.<br>
+	My third is in bowman and in bowling.<br>
+	My fourth is in cycling and in golf.<br>
+	My fifth is in flying and not in swimming.<br>
+	My last is in running and not in dancing.<br>
+	My whole is a sport.<br>
+	What am I?<br><br>
+
+	Type your answer here!
+	</p>
+	</div>
+
+	<div id="63" style="display:none">
+	<p>
+	If you were able to answer correctly, well done! Otherwise points would be surely deducted.<br><br>
+	Misty: <i>I know the answer. It is “KUNGFU”.</i><br>
+	Togepi: <i>Yeah, you’re right. So you can use my gadget.</i><br>
+	You: <i>Lets go to the fiery Charmander valley.</i><br><br>
+	Togepi uses his gadget to teleport all of them to the fiery Charmander Valley.
+	Woooh!!<br>
+	And all of them vanished from the forest and finally land in a big dark scary room...<br>
+	</p>
+	</div>
+
+	<div id="64" style="display:none">
+	<p>
+	You: <i>Is this our destination?</i><br>
+	Togepi: <i>No, there is some problem with my gadget. We should have landed at our destination.</i><br>
+	You: <i>Oh Togepi! you and your useless gadgets.</i><br>
+	Misty: <i>Please do something. This place is really scary.</i><br>
+	Togepi: <i>Last time, I used this gadget, It was working fine.</i><br>
+	You: <i>Wait I know who is responsible for this...</i><br>
+	</p>
+	</div>
+
+	<div id="65" style="display:none">
+	<p>
+	Suddenly Haunter appears...<br><br>
+
+	You: <i>Haunter! You have been irritating me since the beginning of my journey to become Pokémon master. Why are you doing this?</i><br>
+	Haunter: <i>Hehehe... Why am I irritating you(mocks Ash)..Well, this is not right time to answer that. Maybe some time later.</i><br>
+	You: <i>Let us out of this place.</i><br>
+	Haunter: <i>Explore the room and you will find the way out on your own.</i><br><br>
+
+	Saying this, Haunter disappears...
+	</p>
+	</div>
+
+	<div id="66" style="display:none"><!-- puzzle image -->
+	<p>
+	You: <i>I am tired of this.</i><br>
+	Misty: <i>He asked us to explore the room, their might be some clue around to get out. Lets find out the way out.</i><br>
+	Togepi: <i>Hey look at that! There is something written on the wall over there. That might be a clue.</i><br><br>
+
+	You approach the wall and see the following engraved on it...<br><br>
+
+	{% load staticfiles %}
+	<img src="{% static "assets/images/river.jpg" %}" alt="river"/> <br><br>
+
+	This famous river has a number of cities along its course.<br>
+	Shout its name to win this game.<br>
+	Type your answer<br>
+	</p>
+	</div>
+
+	<div id="67" style="display:none">
+	<p>
+	Togepi: <i>Hey look at it carefully ! Try to read it after rotating it by 90 degrees counter clockwise…</i><br>
+	Misty: <i>Wait! Are you serious...Let me check..</i><br>
+	Misty: <i>Yeah! I got it...Its MISSISSIPPI</i><br><br>
+
+	{% load staticfiles %}
+	<img src="{% static "assets/images/river.jpg" %}" alt="river"/> <br><br>
+
+	You, Togepi and Misty together shout MISSISSIPPI and boom!<br>
+	That dark room suddenly vanishes and you find yourself in a Valley.<br>
+	</p>
+	</div>
+
+	<div id="68" style="display:none">
+	<p>
+	At the FIERY LIZARD VALLEY...<br><br>
+
+	You: <i>So, we have finally reached our destination.</i><br>
+	Togepi: <i>Lets not waste time and search for other Charmanders who help you train your Charmander.</i><br>
+	You: <i>Oh yes!</i><br><br>
+
+	The Valley is full of Charmanders and its other evolved forms. You proceed ahead in search of someone who could help your Charmander learn powerful attacks. After walking for a long time in the sun, you reach a castle which is located in an interior part of the Valley. It is a very big castle, with a depiction of a legendary Charmander engraved on its wall.<br>
+	</p>
+	</div>
+	
+	<div id="69" style="display:none">
+	<p>
+	Togepi: <i>This must be the castle of KING CHARMANDER.</i><br>
+	You: <i>Come on, lets ask him to teach my Charmander some attacks.</i><br>
+	Misty: <i>Lets go!</i><br><br>
+
+	You reach near the door of the castle. You try opening it, but your efforts go in vain, because the door is locked. You suddenly notice something is written on the wall beside the door...<br>
+	</p>
+	</div>
+
+	<div id="70" style="display:none"><!-- puzzle and unlock charmander's attack1 -->
+	<p>
+	Written on the wall is...<br><br>
+
+	To open the door, you have to prove your worth...<br><br>
+
+	What shape completes the bottom line?<br><br>
+
+	<table>
+	  <tr>
+	    <td>Triangle&nbsp;&nbsp;</td>
+		<td>Pentagon&nbsp;&nbsp;</td>
+		<td>Square&nbsp;&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td>Square&nbsp;&nbsp;</td>
+		<td>Hexagon&nbsp;&nbsp;</td>
+		<td>Hexagon&nbsp;&nbsp;</td>
+		<td>Square&nbsp;&nbsp;</td>
+	  </tr>
+	  <tr>
+		<td>Pentagon&nbsp;&nbsp;</td>
+		<td>Hexagon&nbsp;&nbsp;</td>
+		<td>Hexagon&nbsp;&nbsp;</td>
+		<td>Hexagon&nbsp;&nbsp;</td>
+		<td>Square&nbsp;&nbsp;</td>
+		<td>Triangle&nbsp;&nbsp;</td>
+	  </tr>
+	 <tr>
+		<td>Hexagon&nbsp;&nbsp;</td>
+		<td>Octagon&nbsp;&nbsp;</td>
+		<td>Octagon&nbsp;&nbsp;</td>
+		<td>Octagon&nbsp;&nbsp;</td>
+		<td>Octagon&nbsp;&nbsp;</td>
+		<td>&nbsp;==?==</td>
+	  </tr>
+	</table>
+
+	<br><br>Find the correct shape and the door will open for you.<br><br>
+
+	Type your answer!
+	</p>
+	</div>
+
+	<div id="71" style="display:none">
+	<p>
+	You: <i>This is some kind of a cipher, I guess.</i><br>
+	Togepi: <i>No, it is just following a certain sequence. Observe the number of sides carefully. The square of number of sides of first shape is the sum of sides of other shapes in the same line.</i><br>
+	Misty: <i>So, the answer is SQUARE.</i><br><br>
+
+	The door opens wide and you see KING CHARMANDER sitting on his throne...<br>
+	</p>
+	</div>
+
+	<div id="72" style="display:none">
+	<p>
+	King: <i>Welcome to the Fiery Lizard Valley. Not everyone is able to answer that puzzle, which you did while entering the castle. How can I help you?</i><br>
+	You: <i>Your Highness, we are here to train my Charmander. We have heard you know some special attacks and can help my Charmander learn them.</i><br>
+	King: <i>Sure, why not? But wait, I’ll teach your Charmander some attacks but you have to show your worth as to whether you deserve it or not. Because you did solve the puzzle at the entrance of the castle, I’ll teach your Charmander a basic attack ”FLAME THROW”.</i><br>
+	You: <i>Thank you. I am ready for other attacks. Go Charmander.</i><br><br>
+
+	You let your Pokémon Charmander out of the Pokéball and get ready for the lesson...
+	</p>
+	</div>
+
+	<div id="73" style="display:none">
+	<p>
+	King: <i>First of all, you have to know your Pokémon. Charmander is a bipedal, reptilian Pokémon. A fire burns at the tip of this Pokémon’s slender tail, and has blazed there since Charmander’s birth. The flame can be used as an indication of Charmander's health and mood, burning brightly when the Pokémon is strong, weakly when it is exhausted, wavering when it is happy, and blazing when it is enraged. Charmander dies if its flame goes out.</i><br>
+	You: <i>That was too much at the same time.</i><br>
+	King: <i>You have to know your Pokémon well, if you want to be a real Pokémon master.</i>
+	</p>
+	</div>
+
+	<div id="74" style="display:none">
+	<p>
+	King: <i>So let us start. I’ll teach your Pokémon a very special attack which helps him to create illusionary copies of itself. The copies disorient the enemy, reducing its accuracy.</i><br>
+	You: <i>That means, I’ll have more than one Charmander. This is so good!</i><br>
+	Togepi: <i>My God! Ash, you are so dumb. You won’t have more than one Charmander, its just an illusion!</i><br>
+	King: <i>Let me ask you a puzzle Ash, so as to make you understand this. If you answer this, I’ll tell you that attack. The puzzle goes as follows...</i><br>
+	</p>
+	</div>
+
+	<div id="75" style="display:none"><!-- puzzle and unlock charmander's attack2 -->
+	<p>
+	A certain family party consisted of 1 grandfather, 1 grandmother, 2 fathers, 2 mothers, 4 children, 3 grandchildren, 1 brother, 2 sisters, 2 sons, 2 daughters, 1 father-in-law, 1 mother-in-law, and 1 daughter-in-law.<br><br>
+
+	A total of 23 people, you might think, but no. What is the minimum number of people here?<br><br>
+
+	Give your answer, preferably in number-names.<br>
+	</p>
+	</div>
+
+	<div id="76" style="display:none">
+	<p>
+	Togepi: <i>Its SEVEN. The family consists of 2 little girls, a boy, their father and mother and their father’s father and mother.<br>
+	You: Yes, I got it. The answer is “SEVEN”.</i><br>
+	King: <i>Great! And the attack name is “DOUBLE TEAM”. Use it well.</i><br><br>
+
+	Great Job! You have unlocked two attacks for charmander.<br><br>
+
+	King: <i>To get the final attack, you have to answer another puzzle. This time think twice before you answer.</i><br>
+	</p>
+	</div>
+
+	<div id="77" style="display:none"><!-- puzzle and unlock charmander's attack3 -->
+	<p>
+	I was going to Pewter city,<br>
+	I met a man with seven wives.<br>
+	Each wife had seven sons,<br>
+	Each son had seven charmanders,<br>
+	Each charmander had seven kits.<br>
+	Kits, charmanders, sons and wives,<br>
+	How many were going to Pewter City?<br><br>
+
+	Answer in digits preferably, as your number names may vary.<br>
+	</p>
+	</div>
+
+	<div id="78" style="display:none">
+	<p>
+	You: <i>Wait, let me count...</i><br>
+	Togepi: <i>Oh! he said listen carefully...</i><br>
+	Togepi: <i>Only 'he' was going to Pewter city.</i><br>
+	You: <i>Oh yes! The answer is just one!</i><br><br>
+
+	King: <i>Great job! You have proved your worth to me. Your Charmander deserves to know the sacred attack of “DRAGON CLAW”. It is a dragon type attack which can cause great damage to your oppponent.</i><br>
+	You: <i>Thank you King Charmander. You have helped me a lot.</i><br>
+	Misty: <i>Time to head back.</i><br>
+	Togepi: <i>Lets go to Saffron city now!</i><br>
+	King: <i>Adios...</i><br>
+	You: <i>Goodbye, your Majesty!</i><br>
+	</p>
+	</div>
+
+	<div id="79" style="display:none">
+	<p>
+	Togepi teleports you all to Saffron City and you are ready to face Saffron City’s gym trainer Sabrina.<br><br>
+
+	In Saffron City:<br><br>
+
+		 	 	 	
+	You: <i>Now it’s time to meet Sabrina.</i><br>
+	Sabrina: <i>Welcome to Saffron Gym. I knew you guys would come here.</i><br>
+	You: <i>So you are really Sabrina, the gym leader?</i><br>
+	Misty: <i>How did you know that?</i><br>
+	Sabrina: <i>I had a vision of your arrival! I have had psychic powers since I was a little child. I first learned to bend spoons with my mind.</i><br>
+	Sabrina: <i>So, what are you here for?</i><br>
+	You: <i>I am here to win the Marsh Badge.</i><br>
+	Sabrina: <i>I dislike fighting, but if you wish, I will show you my powers!</i><br><br>
+	Here the battle for your third badge begins...<br>
+	</p>
+	</div>
+
+	<div id="80" style="display:none"><!-- gym battle -->
+	<p>
+	Sabrina: <i>Come out Abra</i><br>
+	You: <i>Go Charmander...</i><br><br>
+
+	Pokedex: <i>It’s Abra, a Psychic-type Pokémon.</i><br>
+	Abra-Teleport<br><br>
+
+	Instruct Charmander to perform an attack!<br>
+	</p>
+	</div>
+
+	<div id="81" style="display:none"><!-- gym battle -->
+	<p>
+	<strong>Abra evolved to Kadabra</strong><br><br>
+
+	You: <i>What’s that?</i><br>
+	Pokedex: <i>It’s Kadabra, a Psychic-type Pokémon. It evolves from Abra.</i><br>
+	You: <i>That isn’t fair.</i><br>
+	Misty: <i>But evolving a Pokémon during the match is against the rules. Be careful, Kadabra is really powerful.</i><br>
+	You: <i>This time you won’t get away from my Pokémon. Why is she so silent and how does she control her Pokémon?</i><br>
+	Misty: <i>People say that Sabrina can communicate with her Pokémon during battle without speaking.</i><br>
+	Sabrina: <i>Kadabra - Psychic attack!</i><br><br>
+
+	Choose your attack now!<br>
+	</p>
+	</div>
+
+	<div id="82" style="display:none"><!-- gym battle -->
+	<p>
+	Sabrina: <i>Kadabra - Toxic!</i><br><br>
+
+	Choose your attack fast!<br>
+	</p>
+	</div>
+
+	<div id="83" style="display:none">
+	<p>
+	Your attack causes Kadabra’s health to fall down substantially. Congratulations! You have won this battle.<br><br>
+
+	Sabrina: <i>I'm shocked! But a loss is a loss. I admit I didn't work hard enough to win. You earned the Marsh Badge.</i><br>
+	You: <i>I see.(speaks objectively)</i>
+	</p>
+	</div>
+
+	<div id="84" style="display:none">
+	<p>
+	Sabrina: <i>Marsh Badge draws out your subliminal powers. Although I failed to accurately predict your power, this much I know to be true. You will become a celebrated and beloved Champion. Your love for your Pokémon overwhelmed my psychic power. The power of love, I think, is also a kind of psychic power.</i><br>
+	Congrats!<br><br>
+	Misty: <i>Congratulations Ash! Now it’s time for the Vermilion Gym.</i><br>
+	Sabrina: <i>I hope, you had a nice stay in Saffron City. Have a happy Journey.</i><br>
+	You: <i>Yeah kind of, but thanks anyway.</i><br>
+	</p>
+	</div>
+
+	<div id="85" style="display:none">
+	<p>
+	You get outside the gym and continue your journey to Vermillion City.<br>
+	Suddenly Haunter appears in front of you...<br><br>
+
+	You: <i>Oh no! Haunter, not again. Please leave us alone. I am definitely not in the mood to solve any more puzzles...</i><br>
+	Haunter: <i>I am not here to ask any puzzles or irritate you. I am here to ask for your help.</i><br>
+	Togepi: <i>Help? Seriously?</i><br>
+	You: <i>You have been irritating us from start and you expect us to help you, this is not going to happen.</i><br>
+	Haunter: <i>Please help me. I’ll explain you everything. I was not irritating you but was testing your patience and skills. And you have been successful in proving your worth.</i><br>
+	</p>
+	</div>
+
+	<div id="86" style="display:none">
+	<p>
+	You: <i>Testing me? But why?</i><br>
+	Haunter: <i>I am not a bad luck soul, but a ghost-type Pokémon. My master Vaibhav is an Elite Four Pokémon Trainer. He has been captured by Team Rocket along with the whole Elite Four team, because they stood against their ulterior motives. Team Rocket have developed a genetically modified Pokémon named “SEW TWO” which is very powerful.<br>
+	They will use SEW TWO to fulfill their evil dream of ruling the world.</i><br>
+	Togepi: <i>This sounds interesting!</i><br>
+	Haunter: <i>I am not narrating a story... My master Vaibhav is in real danger. Please help me save him from Team Rocket...</i><br>
+	</p>
+	</div>
+
+	<div id="87" style="display:none">
+	<p>
+	You: <i>But where can we find Team Rocket?</i><br>
+	Haunter: <i>I can take you to their headquarters, where they develop genetically modified Pokémons. And we have to hurry before they hurt my master.</i><br>
+	Misty: <i>We should help him out.</i><br>
+	Togepi: <i>Yes we should...</i><br>
+	You: <i>Ok fine! We will help you defeat Team rocket and destroy their Laboratories. Lets go!</i><br>
+	</p>
+	</div>
+
+	<div id="88" style="display:none">
+	<p>
+	Haunter: <i>Wait! Before we get there, I think you should take your Pokémons to nurse Joy, who takes care of sick and injured Pokémons.</i><br>
+	You: <i>Let's go to Nurse Joy.</i><br><br>
+
+	At Pokémon Center...<br><br>
+
+	You will be given three puzzles. Solving them would help you earn some bonus points and also would increment your Pokémon’s health. Also the best!<br>
+	</p>
+	</div>
+
+	<div id="89" style="display:none"><!-- puzzle 1 - nurse joy -->
+	<p>
+	You are Akul, and you find yourself playing a game with your friend Sarthak.<br><br>
+	It is played with a deck of only 16 cards, divided into 4 suits:<br>
+	  	<i>Red, Blue, Orange and Green</i><br>
+	There are four cards in each suit:<br>
+	  	<i>Ace, King, Queen and Jack.</i><br>
+
+	Ace outranks King, which outranks Queen, which outranks Jack - except for the Green Jack, which outranks every other card.<br>
+
+	If two cards have the same face value, then Red outranks Blue, which outranks Orange, which outranks Green, again except for the Green Jack, which outranks everything.<br>
+
+	Here's how the game is played: you are dealt one card face up, and your friend is dealt one card face down. Your friend then makes some true statements, and you have to work out who has the higher card, you or your friend. It's that simple!<br>
+
+	You have dealt the <strong>Red</strong> <strong>Queen</strong> and your friend makes three statements:<br>
+	1. My card could lose to a Blue card.<br>
+	2. Knowing this, if I am more likely to have an Ace or a King than a Queen or Jack, then I have an Orange card. Otherwise, I don't.<br>
+	3. Given all of the information you now know, if I am more likely to have a Jack than an Ace, then I actually have a King. Otherwise, I don't.<br>
+	Who has the higher card, you or your friend?<br>
+	Valid Answers are “AKUL” or “SARTHAK”<br>
+
+	Type your answer!
+	</p>
+	</div>
+
+	<div id="90" style="display:none">
+	<p>
+	Nurse Joy: <i>If you guessed the answer as “SARTHAK” your Pikachu will gain bonus 25 units of health.</i><br><br>
+
+	Now continue to the next puzzle!
+	</p>
+	</div>
+
+	<div id="91" style="display:none"><!-- puzzle 2 - nurse joy -->
+	<p>
+	The Pokeball safe has a rather unusual control panel.<br>
+	In order to open the safe you have to press every single button once only, in the correct sequence, ending on the button marked E.<br><br>
+
+	Each button clearly states which button to press next, for example, 2U means move up 2 buttons and 3R means move right 3 buttons.<br><br>
+
+	Can you determine which button you must start with?<br><br>
+
+	{% load staticfiles %}
+	<img src="{% static "assets/images/grid.png" %}" alt="grid"/> <br><br>
+
+	Suppose your answer is the element corresponding to first row and first column i.e. “3R”, then your should submit “3R”.<br><br>
+
+	So type your answer now!
+	</p>
+	</div>
+
+	<div id="92" style="display:none">
+	<p>
+	Nurse Joy: <i>If you guessed the answer as “1L” your Squirtle will gain bonus 25 units of health.</i><br><br>
+
+	Now continue to the final puzzle, Nurse Joy has got for you.
+	</p>
+	</div>
+
+	<div id="93" style="display:none">
+	<p>
+	After a recent Pokémon-Trainer annual marathon, the judges were comparing their notes to determine who finished where. From their notes, can you help them find the second runner-up?<br><br>
+	<ul>
+	<li>Matthew Merryman beat Tom Trent and Jimmy James.</li>
+	<li>Peter Piper beat Jimmy James, Tom Trent and Alan Ardman.</li>
+	<li>Zach Zebra lost to Peter Piper.</li>
+	<li>Graham Goodfellow beat Tom Trent</li>
+	<li>Zach Zebra beat Frank Flintbone.</li>
+	<li>Graham Goodfellow lost to Frank Flintbone and Peter Piper.</li>
+	<li>Tom Trent beat Brian Brick.</li>
+	<li>Alan Ardman beat Zach Zebra, Kevin Kingfisher and Graham Goodfellow.</li>
+	<li>Kevin Kingfisher lost to Graham Goodfellow and Matthew Merryman.</li>
+	<li>Brian Brick beat Kevin Kingfisher.</li>
+	<li>Matthew Merryman lost to Alan Ardman and Zach Zebra.</li>
+	<li>Frank Flintbone beat Tom Trent, Matthew Merryman and Brian Brick.</li>
+	<li>Tom Trent lost to Jimmy James and Alan Ardman.</li>
+	<li>Jimmy James beat Graham Goodfellow and Brian Brick.</li>
+	</ul>
+
+	<br><br>Type what you got! Don't forget to keep your Caps On!<br>
+	</p>
+	</div>
+
+	<div id="94" style="display:none">
+	<p>
+	Nurse Joy: <i>If you guessed the answer as “ZACH ZEBRA” your charmander will gain bonus 25 units of health.</i><br><br>
+
+	Good Job! You are now ready to proceed towards the Final Showdown!!
+	</p>
+	</div>
+
+<!-- FINAL SHOWDOWN begins -->
+
+	<div id="95" style="display:none">
+	<h2>WELCOME TO THE FINAL SHOWDOWN!<br><br></h2>
+	<p>
+	Great Job! Till now you have captured 3 Pokémons and unlocked their attacks. But now you have to face Team rocket and stop them from creating more genetically modified pokémons.<br>
+	Their Head Quarters is atop fifty pillars. At each pillar are minions of Team Rocket waiting for you, to stop you from entering into the Head Quarters. You have to not only defeat those minions, and their Pokémons, but also defeat “SEW TWO” and destroy their Head Quarters.<br><br>
+
+	All the best!
+	</p>
+	</div>
+
+	<div id="96" style="display:none">
+	<h3>At the Head Quarters…</h3><br>
+	<p>
+	You, Misty, Togepi and Haunter approach one of the pillars of the Head Quarters. There you find minions waiting to stop you from entering into their Laboratory...<br><br>
+
+	Team Rocket:<br>
+	JESSIE: <i>Prepare for... </i>(You interfered)<br>
+	You: <i>Prepare for trouble!</i><br>
+	Misty: <i>And make it Double, Double!</i><br>
+	JAMES (angrily): <i>Uhh, quit imitating us!</i><br>
+	You: <i>To protect the world from devastation!</i><br>
+	Misty: <i>To ignite all people within our nation!</i><br>
+	JESSIE: (angrily): <i>Err! This is insulting!</i><br>
+	You: <i>To denounce the evils of truth and love!</i><br>
+	Misty: <i>To extend our reach to the stars above!</i><br>
+	You: <i>Ash!</i><br>
+	Misty: <i>Misty!</i><br>
+	You: <i>Team Rocket, blast off at the speed of light!</i><br>
+	Misty: <i>Surrender now, or prepare to fight!</i><br>
+	Pikachu: <i>Pika Pika! That's right!</i>
+	</p>
+	</div>
+
+	<div id="97" style="display:none">
+	<p>
+	Misty: <i>These clowns are here again to create trouble. Why do they keep coming back to lose?</i><br><br>
+
+	Jessie: <i>Okay Arbok, go and defeat those evil kids!</i><br>
+	Ash: <i>Prepare to lose! Go Squirtle!</i><br><br>
+	
+	You release Squirtle to fight Arbok!
+	</p>
+	</div>
+
+	<div id="98" style="display:none"><!-- battle 1.1 -->
+	<p>
+	Jessie: <i>Go Arbok, use Headbutt!</i><br>
+	Ash: <i>Squirtle, dodge him and attack!</i><br><br>
+
+	Type the attack you want Squirtle to perform on Arbok!
+	</p>
+	</div>
+
+	<div id="99" style="display:none"><!-- battle 1.2 -->
+	<p>
+	Jessie: <i>Arbok, use Poison Sting!</i><br>
+	Togepi: <i>Ash, dodge his attack!</i><br>
+	Ash: <i>Go ahead and defeat him Squirtle!</i><br><br>
+
+	Type another of Squirtle's attack!
+	</p>
+	</div>
+
+<!-- Century! :D -->
+
+	<div id="100" style="display:none">
+	<p>
+	Well done! You defeated Arbok!<br><br>
+
+	James: <i>It's not over, go Weezing!</i><br>
+	Ash: <i>Come back Squirtle. Charmander, I choose you!</i><br>
+	</p>
+	</div>
+
+	<div id="101" style="display:none"><!-- battle 2.1 -->
+	<p>
+	James: <i>Weezing, use Smokescreen!</i><br>
+	Ash: <i>Charmander, clear the smokescreen and attack him!</i><br><br>
+
+	Type some attack!
+	</p>
+	</div>
+
+	<div id="102" style="display:none"><!-- battle 2.2 -->
+	<p>
+	James: <i>That does not affect us. Weezing, Poison Gas, now!</i><br><br>
+
+	Ash: <i>Lets finish this match off, Charmander go!</i><br><br>
+
+	Type its attack!
+	</p>
+	</div>
+
+	<div id="103" style="display:none">
+	<p>
+	Weezing has been defeated.<br><br>
+
+	James: <i>We have again been defeated...</i><br>
+
+	Misty: <i>Lets go inside….</i><br><br>
+
+Inside the laboratory, you see SEW TWO analysing some data on the supercomputer with<br> the Elite Four team imprisoned in the centre and some cords attached to them.
+	</p>
+	</div>
+
+	<div id="104" style="display:none"><!-- battle vs sew two -->
+	<p>
+	Ash: <i>SEW TWO, Free the Elite Four Team. I am here to defeat you.</i><br>
+
+	SEW TWO: <i>That is impossible, since I am a genetically modified Pokémon. My head is wirelessly attached to a supercomputer from where I get information about the weaknesses of all Pokémons. I analyse this data and in turn make use of it to defeat them.</i><br>
+	Togepi: <i>Ash, it would be impossible to defeat him with conventional methods. Think something different.</i><br>
+	Haunter: <i>Oh look! SEW TWO is connected to the main server. If somehow we could distract him and gain access to the server room, we could destroy him.</i><br><br>
+	Ash (with enthusiasm): <i>No need of that. Me and Pikachu will easily defeat him. Go Pikachu!!! Attack him!</i><br><br>
+
+	Give an attack for Pikachu to perform!<br>
+	</div>
+
+	<div id="105" style="display:none">
+	<p>
+	SEW TWO uses Shield. Pikachu’s attack has no effect on it.<br><br>
+
+	Togepi: <i>See, I told you, your attacks will have no effect on SEW TWO.</i><br>
+	
+	Misty: <i>Maybe, we should ask all our pokemons to attack him simultaneously… He might not be able to retaliate.</i><br>
+	Togepi: <i>It won’t matter, He is very strong…</i><br>
+
+	Haunter: <i>Ash, keep distracting him. I will try to find the server room and gain access to it.</i><br>
+
+	Ash: <i>Umm...okay.</i><br>
+	</p>
+	</div>
+
+	<div id="106" style="display:none">
+	<p>
+	Togepi uses his power and teleports Ash and Pikachu to server room where the mainframe computer is present, which is attached to SEW TWO.<br><br>
+
+	Ash: <i>Oh good!! Now Pikachu, its our chance to defeat SEW TWO. Go Pikachu!!</i><br>
+	Pikachu : <i>Pika-Pika… Pikachu…</i><br><br>
+
+	Type Pikachu's attack!<br>
+	</p>
+	</div>
+
+	<div id="107" style="display:none">
+	<p>
+	Pikachu’s Attack destroys the mainframe computer, which in turn short circuits the whole server. SEW TWO loses his connection with the server and his health drops. As a result, SEW two starts decaying and his body collapses…<br><br>
+
+Meanwhile, Misty and Haunter frees the Elite Four team and they all escape from the headquarters before the whole laboratory is destroyed.<br><br>
+
+Elite Four Team members Sagar, Vaibhav , Sarthak and Sambit appreciate Ash’s bravery and thank him for helping them. They give Ash a Rainbow Badge, which is obtained after defeating each of the Elite Four Trainers, as a token of appreciation.<br><br>
+
+Haunter and Elite four trainers bid you a final goodbye, and leave…<br><br>
+
+You: <i>Yes! I have got the best of all the Badges, the Rainbow Badge. I already feel like a Pokémon Master.</i><br>
+Togepi: <i>Enough of self gratification…</i><br>
+Misty: <i>You still have to learn a lot of things. This is just the beginning…</i><br><br>
+
+You: <i>Yeah! You’re right, This is just the beginning…</i><br><br>
+	</p>
+	</div>
+
+	<div id="108" style="display:none">
+	<p>
+	Congratulations! You have completed your journey and are now a true Pokémon Master.<br><br>
+	Your 'score' will depict how well you performed.<br>
+	This score is not just your CPI, but a weighted accumulation of your CPI and Pokémon healths.<br>
+	<a href="/pokequest/scorepage">Click here</a> to view your Score, as well the ranking of other Pokémon masters playing with you.<br>
+	Go ahead!
+	</p>
+	</div>
+
+	<!-- input box starts -->
+	<div id="submit_form">
+			<form action="/pokequest/event_submit" method="post" autocomplete="off">{% csrf_token %}
+				<div class="row"> 
+				<div class="col-md-8">
+					<input type="text" class="form-control input-lg" value="" name="input" id="input" placeholder="Type your command here." autofocus >
+				</div>
+				<div class="col-md-4">
+					<input type="submit" class="btn btn-primary btn-lg" value="Submit">
+				</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- input box ends -->
+</div>
+<div class="col-md-2">
+</div>
+</div>
+
+{% endblock %}
